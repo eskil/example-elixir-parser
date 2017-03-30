@@ -10,6 +10,7 @@ I read these things to get a feel for how yacc/lex (yecc/leex) in elixir works.
  * https://cameronp.svbtle.com/how-to-use-leex-and-yecc
  * https://github.com/knutin/calx
  * http://blog.rusty.io/2011/02/08/leex-and-yecc/
+ * https://arifishaq.wordpress.com/2014/01/22/playing-with-leex-and-yeec/
 
 And of course the canonical documentation
 
