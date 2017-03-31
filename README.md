@@ -1,21 +1,23 @@
 # ExampleElixirParser
 
-Yet another how to make an elixir parser package using leex and yecc.
+Yet another how to make an elixir parser package using leex and
+yecc. Leex and yecc are lex/yacc of erlang in the
+[parsetools](http://erlang.org/doc/apps/parsetools/) part.
 
 ## Helpful links
 
-I read these things to get a feel for how yacc/lex (yecc/leex) in elixir works.
+The canonical documentation for leex and yecc 
+
+ * http://erlang.org/doc/man/leex.html
+ * http://erlang.org/doc/man/yecc.html
+
+I also found these blog posts useful in getting started.
 
  * http://andrealeopardi.com/posts/tokenizing-and-parsing-in-elixir-using-leex-and-yecc/
  * https://cameronp.svbtle.com/how-to-use-leex-and-yecc
  * https://github.com/knutin/calx
  * http://blog.rusty.io/2011/02/08/leex-and-yecc/
  * https://arifishaq.wordpress.com/2014/01/22/playing-with-leex-and-yeec/
-
-And of course the canonical documentation
-
- * http://erlang.org/doc/man/leex.html
- * http://erlang.org/doc/man/yecc.html
 
 ### Goal
 
