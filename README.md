@@ -235,6 +235,8 @@ which will yield
 You can get a graph of the lexer by calling `:leex:file` with the `:dfa_graph` option.
 
    ```bash
+   example_elixir_parser $ cd src
+   example_elixir_parser/src $ iex
    iex(1)> :leex.file('example_elixir_parser_lexer', :dfa_graph)
    {:ok, './example_elixir_parser_lexer.erl'}
    ```
@@ -246,8 +248,8 @@ This generates a graphviz file
    ```
 
    ```bash
-   $ dot -Tpdf example_elixir_parser_lexer.dot -o example_elixir_parser_lexer.pdf
-   $ open example_elixir_parser_lexer.pdf
+   example_elixir_parser/src $ dot -Tpdf example_elixir_parser_lexer.dot -o example_elixir_parser_lexer.pdf
+   example_elixir_parser/src $ open example_elixir_parser_lexer.pdf
    ```
 
 You can see an example [here](example/example_elixir_parser_lexer.pdf). 
