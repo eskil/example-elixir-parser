@@ -1,34 +1,4 @@
 defmodule ExampleElixirParser.Main do
-  def reduce_to_value({:int, _line, value}, _state) do
-    value
-  end
-
-  def reduce_to_value({:add_op, lhs, rhs}, state) do
-    reduce_to_value(lhs, state) + reduce_to_value(rhs, state)
-  end
-
-  def reduce_to_value({:mul_op, lhs, rhs}, state) do
-    reduce_to_value(lhs, state) * reduce_to_value(rhs, state)
-  end
-
-  def reduce_to_value({:div_op, lhs, rhs}, state) do
-    reduce_to_value(lhs, state) / reduce_to_value(rhs, state)
-  end
-
-  def reduce_to_value({:atom, _line, atom}, state) do
-    state[atom]
-  end
-  
-  def process_tree([{:assign, {:atom, _line, lhs}, rhs} | tail], state) do
-    rhs_value = reduce_to_value(rhs, state)
-    IO.puts "Evaluated #{lhs} to #{rhs_value}"
-    process_tree(tail, Map.merge(state, %{lhs => rhs_value}))
-  end
-
-  def process_tree([], state) do
-    state
-  end
-
   def process_parse({:error, result}) do
     IO.puts "\nParse error"
     IO.inspect result
@@ -37,8 +7,7 @@ defmodule ExampleElixirParser.Main do
   def process_parse({:ok, tree}) do
     IO.puts "\nParse tree"
     IO.inspect tree, pretty: true
-    IO.puts "\nEvalutions"
-    state = process_tree(tree, %{})
+    state = ExampleElixirParser.process_tree(tree, %{})
     IO.puts "\nFinal state"
     IO.inspect state, pretty: true
   end
