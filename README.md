@@ -229,3 +229,25 @@ which will yield
    Final state
    %{a: 7, b: 4, result: 27.0}
    ```
+
+### Extra 
+
+You can get a graph of the lexer by calling `:leex:file` with the `:dfa_graph` option.
+
+   ```bash
+   iex(1)> :leex.file('example_elixir_parser_lexer', :dfa_graph)
+   {:ok, './example_elixir_parser_lexer.erl'}
+   ```
+
+This generates a graphviz file
+
+   ```
+   example_elixir_parser_lexer.dot
+   ```
+
+   ```bash
+   $ dot -Tpdf example_elixir_parser_lexer.dot -o example_elixir_parser_lexer.pdf
+   $ open example_elixir_parser_lexer.pdf
+   ```
+
+You can see an example [here](example/example_elixir_parser_lexer.pdf). 
