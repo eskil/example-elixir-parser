@@ -208,4 +208,24 @@ Build and run
    mix escript.build && ./example_elixir_parser input.txt
    ...
    ```
+which will yield
 
+   ```
+   Parsing example/input.txt
+   Parsed example/input.txt, stopped at line 4
+
+   Tokens:
+   [{:atom, 1, :a}, {:=, 1}, {:int, 1, '7'}, {:atom, 2, :b}, {:=, 2},
+    {:int, 2, '4'}, {:atom, 3, :result}, {:=, 3}, {:atom, 3, :a}, {:+, 3},
+     {:atom, 3, :b}, {:*, 3}, {:int, 3, '10'}, {:/, 3}, {:int, 3, '2'}]
+
+   Parse tree
+   [{:assign, {:atom, 1, :a}, {:int, 1, 7}},
+    {:assign, {:atom, 2, :b}, {:int, 2, 4}},
+     {:assign, {:atom, 3, :result},
+       {:add_op, {:atom, 3, :a},
+	  {:div_op, {:mul_op, {:atom, 3, :b}, {:int, 3, 10}}, {:int, 3, 2}}}}]
+
+   Final state
+   %{a: 7, b: 4, result: 27.0}
+   ```
