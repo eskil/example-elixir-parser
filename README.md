@@ -210,7 +210,7 @@ Build and run
    ```
 which will yield
 
-   ```
+   ```erlang
    Parsing example/input.txt
    Parsed example/input.txt, stopped at line 4
 
