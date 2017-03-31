@@ -7,7 +7,7 @@ defmodule ExampleElixirParser.Main do
   def process_parse({:ok, tree}) do
     IO.puts "\nParse tree"
     IO.inspect tree, pretty: true
-    state = ExampleElixirParser.process_tree(tree, %{})
+    state = ExampleElixirParser.process_tree(tree)
     IO.puts "\nFinal state"
     IO.inspect state, pretty: true
   end
