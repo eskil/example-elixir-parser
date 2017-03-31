@@ -1,6 +1,6 @@
 # ExampleElixirParser
 
-Yet another how to make a elixir parser package using leex and yecc.
+Yet another how to make an elixir parser package using leex and yecc.
 
 ## Helpful links
 
