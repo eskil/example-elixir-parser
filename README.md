@@ -61,7 +61,9 @@ Which will evaluate to a state of
 
 Define a lexer in `src/example_elixir_parser_lexer.xrl`. Since the
 file name is used as the module name, I don't use something short ala
-`parser.xrl`.
+`parser.xrl`. The "trick" here is that `mix` compile will parse the
+`.xrl` and `.yrl` files in `src/` into `.erl` files and they become
+part of the build.
 
    ```erlang
    Definitions.
