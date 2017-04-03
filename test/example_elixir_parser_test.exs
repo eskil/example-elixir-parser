@@ -52,4 +52,12 @@ defmodule ExampleElixirParserTest do
     :a = :a + :b
     """) == %{a: 5, b: 2}
   end
+
+  test "variables with numbers in name" do
+    assert parse_and_eval("""
+    :a1 = 3
+    :a2 = 2
+    :b1 = :a1 + :a2
+    """) == %{a1: 3, a2: 2, b1: 5}
+  end
 end
