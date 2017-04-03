@@ -150,11 +150,13 @@ this will evaluate to a parse tree of
      {:assign, {:atom, 2, :b}, {:int, 2, 4}},
      {:assign, {:atom, 3, :result},
        {:add_op,
-	  {:atom, 3, :a},
-	  {:div_op,
-	    {:mul_op, {:atom, 3, :b}, {:int, 3, 10}},
-	    {:int, 3, 2}
-	  }
+         {:atom, 3, :a},
+         {:div_op,
+           {:mul_op,
+             {:atom, 3, :b},
+             {:int, 3, 10}},
+           {:int, 3, 2}
+         }
        }
      }
    ]
@@ -193,8 +195,19 @@ In `lib/example_elixir_parser.ex`, you can write your tree parser in `ExampleEli
 
    ```elixir
    defmodule ExampleElixirParser do
-      def process_tree([{:type, line, value} | tail]) do
-	...
+      defp evaluate([{:assign, {:atom, ...}, rhs} | tail], state) do
+        ..
+      end
+
+      def process_tree(tree) do
+        evaluate_tree(tree, %{})
+      end
+
+      def parse_file(filename) do
+        text = File.read!(filename)
+        {:ok, tokens, line} = :example_elixir_parser_lexer.string(String.to_char_list(text))
+        {:ok, tree} = :example_elixir_parser.parse(tokens)
+        process_tree(tree)        
       end
    end
    ```
@@ -223,8 +236,17 @@ which will yield
    [{:assign, {:atom, 1, :a}, {:int, 1, 7}},
     {:assign, {:atom, 2, :b}, {:int, 2, 4}},
      {:assign, {:atom, 3, :result},
-       {:add_op, {:atom, 3, :a},
-	  {:div_op, {:mul_op, {:atom, 3, :b}, {:int, 3, 10}}, {:int, 3, 2}}}}]
+       {:add_op,
+         {:atom, 3, :a},
+         {:div_op,
+           {:mul_op,
+             {:atom, 3, :b},
+             {:int, 3, 10}},
+           {:int, 3, 2}
+         }
+       }
+     }
+   ]
 
    Final state
    %{a: 7, b: 4, result: 27.0}

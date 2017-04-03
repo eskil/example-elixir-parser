@@ -18,7 +18,7 @@ defmodule ExampleElixirParser.Main do
     IO.puts "Parsing #{filename}"
     text = File.read!(filename)
 
-    {:ok, tokens, line} = :example_elixir_parser_lexer.file(String.to_char_list(text))
+    {:ok, tokens, line} = :example_elixir_parser_lexer.string(String.to_char_list(text))
     IO.puts "Parsed #{filename}, stopped at line #{line}"
     IO.puts "\nTokens:"
     IO.inspect tokens, pretty: true
