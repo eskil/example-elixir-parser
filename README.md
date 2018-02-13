@@ -18,6 +18,7 @@ I also found these blog posts useful in getting started.
  * https://github.com/knutin/calx
  * http://blog.rusty.io/2011/02/08/leex-and-yecc/
  * https://arifishaq.wordpress.com/2014/01/22/playing-with-leex-and-yeec/
+ * http://asquera.de/blog/2015-04-10/writing-a-commandline-app-in-elixir/
 
 ### Goal
 
@@ -177,6 +178,11 @@ To mix.exs, add
      ]
    ```
 
+This is what `mix` uses to know what to use as the main entry for `mix
+escript.build` generated
+tools. [this](http://asquera.de/blog/2015-04-10/writing-a-commandline-app-in-elixir/)
+blog post explains how to make command line tools in elixir with mix.
+
 Define a `main/1` function in `lib/main.ex` under
 `ExampleElixirParser.Main.main/1`. This will be responsible for
 loading the file contents and feeding through the lexer and grammar.
@@ -215,7 +221,7 @@ In `lib/example_elixir_parser.ex`, you can write your tree parser in `ExampleEli
    ```
 
 Look in [lib/example_elixir_parser.ex](lib/example_elixir_parser.ex)
-and [lib/main.ex](lib/main.ex] for the full code.
+and [lib/main.ex](lib/main.ex) for the full code.
 
 Build and run
 
@@ -276,4 +282,6 @@ This generates a graphviz file
    example_elixir_parser/src $ open example_elixir_parser_lexer.pdf
    ```
 
-You can see an example [here](example/example_elixir_parser_lexer.pdf). 
+You can see an example
+[here](example/example_elixir_parser_lexer.pdf). I'll leave it to you
+to decide if that's useful to you or not.
