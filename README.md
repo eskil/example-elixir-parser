@@ -203,8 +203,12 @@ In `lib/example_elixir_parser.ex`, you can write your tree parser in `ExampleEli
 
    ```elixir
    defmodule ExampleElixirParser do
-      defp evaluate([{:assign, {:atom, ...}, rhs} | tail], state) do
-        ..
+      defp evaluate_tree([{:assign, {:atom, ...}, rhs} | tail], state) do
+        .. your evaluation logic goes here..
+      end
+
+      defp evaluate_tree([], state) do
+        state
       end
 
       def process_tree(tree) do
