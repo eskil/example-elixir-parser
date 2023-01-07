@@ -230,7 +230,7 @@ and [lib/main.ex](lib/main.ex) for the full code.
 Build and run
 
    ```bash
-   mix escript.build && ./example_elixir_parser input.txt
+   mix escript.build && ./example_elixir_parser example/input.txt
    ...
    ```
 which will yield
