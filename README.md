@@ -179,7 +179,7 @@ To mix.exs, add
      ]
    ```
 
-*NOTE: the `compilers:` is new since elixir 1.3*
+*NOTE: the `compilers:` is new per elixir 1.17*
 
 This is what `mix` uses to know what to use as the main entry for `mix
 escript.build` generated
