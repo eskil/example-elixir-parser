@@ -6,7 +6,7 @@ yecc. Leex and yecc are lex/yacc of erlang in the
 
 ## Helpful links
 
-The canonical documentation for leex and yecc 
+The canonical documentation for leex and yecc
 
  * http://erlang.org/doc/man/leex.html
  * http://erlang.org/doc/man/yecc.html
@@ -71,7 +71,7 @@ part of the build.
    INT        = [0-9]+
    NAME       = :[a-zA-Z_][a-zA-Z0-9_]*
    WHITESPACE = [\s\t\n\r]
-   
+
    Rules.
    \+            : {token, {'+',  TokenLine}}.
    \-            : {token, {'-',  TokenLine}}.
@@ -134,10 +134,10 @@ Define a yacc style grammer in `src/example_elixir_parser.yrl`
 
    Erlang code.
 
-   unwrap({int, Line, Value}) -> {int, Line, list_to_integer(Value)}.   
+   unwrap({int, Line, Value}) -> {int, Line, list_to_integer(Value)}.
    ```
 
-Given the above example of 
+Given the above example of
 
    ```
    :a = 7
@@ -175,8 +175,11 @@ To mix.exs, add
      [app: :my_parser,
        ...
        escript: [main_module: ExampleElixirParser.Main],
+       compilers: [:yecc, :leex] ++ Mix.compilers(),
      ]
    ```
+
+*NOTE: the `compilers:` is new since elixir 1.3*
 
 This is what `mix` uses to know what to use as the main entry for `mix
 escript.build` generated
@@ -219,7 +222,7 @@ In `lib/example_elixir_parser.ex`, you can write your tree parser in `ExampleEli
         text = File.read!(filename)
         {:ok, tokens, line} = :example_elixir_parser_lexer.string(String.to_char_list(text))
         {:ok, tree} = :example_elixir_parser.parse(tokens)
-        process_tree(tree)        
+        process_tree(tree)
       end
    end
    ```
@@ -264,7 +267,7 @@ which will yield
    %{a: 7, b: 4, result: 27.0}
    ```
 
-### Extra 
+### Extra
 
 You can get a graph of the lexer by calling `:leex:file` with the `:dfa_graph` option.
 

@@ -22,7 +22,7 @@ defmodule ExampleElixirParser do
   defp reduce_to_value({:atom, _line, atom}, state) do
     state[atom]
   end
-  
+
   defp evaluate_tree([{:assign, {:atom, _line, lhs}, rhs} | tail], state) do
     rhs_value = reduce_to_value(rhs, state)
     evaluate_tree(tail, Map.merge(state, %{lhs => rhs_value}))
@@ -37,7 +37,7 @@ defmodule ExampleElixirParser do
   end
 
   def parse_and_eval(string) do
-    {:ok, tokens, _line} = :example_elixir_parser_lexer.string(String.to_char_list(string))
+    {:ok, tokens, _line} = :example_elixir_parser_lexer.string(String.to_charlist(string))
     {:ok, tree} = :example_elixir_parser.parse(tokens)
     process_tree(tree)
   end
