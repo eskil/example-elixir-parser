@@ -4,11 +4,13 @@ defmodule ExampleElixirParser.Mixfile do
   def project do
     [app: :example_elixir_parser,
      version: "0.1.0",
-     elixir: "~> 1.3",
+     elixir: "~> 1.19",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      escript: [main_module: ExampleElixirParser.Main],
-     deps: deps()]
+     deps: deps(),
+     compilers: [:yecc, :leex] ++ Mix.compilers(),
+    ]
   end
 
   # Configuration for the OTP application

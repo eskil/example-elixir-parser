@@ -11,8 +11,14 @@ defmodule ExampleElixirParser.Main do
     IO.puts "\nFinal state"
     IO.inspect state, pretty: true
   end
-  
+
+  def main([]) do
+    IO.puts "Usage ./example_elixir_parser <filename>"
+  end
+
   def main(args) do
+    IO.puts "derp"
+    IO.puts "#{args}"
     filename = Enum.fetch!(args, 0)
 
     IO.puts "Parsing #{filename}"
