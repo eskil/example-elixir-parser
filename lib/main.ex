@@ -17,6 +17,8 @@ defmodule ExampleElixirParser.Main do
   end
 
   def main(args) do
+    IO.puts "derp"
+    IO.puts "#{args}"
     filename = Enum.fetch!(args, 0)
 
     IO.puts "Parsing #{filename}"
